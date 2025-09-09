@@ -1,0 +1,124 @@
+.applied-filters-container {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.filter-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex: 1;
+}
+
+.filter-tag {
+  background: white;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 0;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #dee2e6;
+}
+
+.remove-filter {
+  background: none;
+  border: none;
+  color: #6c757d;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 4px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.remove-filter:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+.clear-all {
+  background: none;
+  color: #28a745;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 0;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.clear-all:hover {
+  background: none;
+  color: #218838;
+  transform: translateY(-1px);
+}
+
+.clear-all:active {
+  transform: translateY(0);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .applied-filters-container {
+    padding: 10px 15px;
+    margin: 10px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .filter-tags-container {
+    width: 100%;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .filter-tag {
+    font-size: 11px;
+    padding: 4px 8px;
+    width: fit-content;
+  }
+  
+  .clear-all {
+    font-size: 11px;
+    padding: 6px 12px;
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .applied-filters-container {
+    padding: 8px 12px;
+    margin: 8px 0;
+  }
+  
+  .filter-tag {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+  
+  .clear-all {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+}

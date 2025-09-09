@@ -1,0 +1,20 @@
+[33m34280a3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m Fix job list responsive design
+[33m969d46d[m Add comprehensive mobile responsive design and center job header
+[33m08d390b[m Center job header content for all screen sizes
+[33m2188e08[m Complete React job application with Teknorix Jobsoid API integration
+[33me22a459[m Update UI to match exact mockup design - proper layout, colors, and button styling
+[33mf16ecfc[m Fix image overflow issue in job descriptions - make images responsive
+[33m805707a[m Fix empty filters handling - ensure all jobs load when no parameters provided
+[33m3654b26[m Fix API parameters to match Jobsoid API documentation (q, dept, loc, fun)
+[33mad7e47e[m Add API test button and fallback test data for dropdowns
+[33m96f6803[m Add debug logging and improve dropdown visibility with loading states
+[33ma21ea4a[m Fix dropdown styling - make options visible with proper colors
+[33m446d1a1[m Fix API base URL to demo.jobsoid.com and improve error handling
+[33m6a77282[m Revert to correct Teknorix API URL and add debug logging
+[33m572077e[m Update API endpoints to use correct  API structure
+[33m5ee80e2[m full width search bar
+[33m803b48e[m Fix layout: Search bar on top row, dropdowns on separate row below
+[33m30318fa[m Update UI to match exact mockup design - clean search bar, proper job cards, and department grouping
+[33m31dc14e[m Fix: Handle API response object structure for location, department, and function fields
+[33m7a6b71c[m Initial commit: Teknorix Jobs App with React
+[33mfac944e[m Initialize project using Create React App

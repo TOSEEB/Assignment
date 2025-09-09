@@ -1,0 +1,57 @@
+.social-share {
+  position: relative;
+  display: inline-block;
+}
+
+.share-btn {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.share-btn:hover {
+  background: #5a6268;
+}
+
+.share-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  z-index: 1000;
+  min-width: 150px;
+  margin-top: 5px;
+}
+
+.share-option {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.share-option:hover {
+  background: #f8f9fa;
+}
+
+.share-option:first-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.share-option:last-child {
+  border-radius: 0 0 4px 4px;
+}
