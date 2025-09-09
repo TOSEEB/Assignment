@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { getJobs, getDepartments, getLocations, getFunctions } from '../api';
 import SearchFilters from './SearchFilters';
 import AppliedFilters from './AppliedFilters';
 import './JobList.css';
 
 function JobList() {
+  const location = useLocation();
+  const history = useHistory();
   const [jobs, setJobs] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [departments, setDepartments] = useState([]);
@@ -20,6 +22,18 @@ function JobList() {
     loadLookups();
     loadJobs();
   }, []);
+
+  // Load filters from URL on component mount
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const urlFilters = {
+      search: urlParams.get('search') || '',
+      department: urlParams.get('department') || '',
+      location: urlParams.get('location') || '',
+      function: urlParams.get('function') || ''
+    };
+    setFilters(urlFilters);
+  }, [location.search]);
 
   useEffect(() => {
     loadJobs();
@@ -96,7 +110,18 @@ function JobList() {
 
   const handleFilterChange = useCallback((newFilters) => {
     setFilters(newFilters);
-  }, []);
+    
+    // Update URL with new filters
+    const urlParams = new URLSearchParams();
+    Object.keys(newFilters).forEach(key => {
+      if (newFilters[key]) {
+        urlParams.set(key, newFilters[key]);
+      }
+    });
+    
+    const newUrl = urlParams.toString() ? `?${urlParams.toString()}` : '';
+    history.push(newUrl);
+  }, [history]);
 
   const groupJobsByDepartment = useCallback((jobsList) => {
     const grouped = {};
@@ -163,12 +188,14 @@ function JobList() {
         filters={filters}
         onRemoveFilter={handleFilterChange}
         onClearAll={() => {
-          setFilters({
+          const clearedFilters = {
             search: '',
             department: '',
             location: '',
             function: ''
-          });
+          };
+          setFilters(clearedFilters);
+          history.push('/');
         }}
         departments={departments}
         locations={locations}

@@ -51,13 +51,18 @@ function JobDetails() {
       ];
       setRelatedJobs(dummyRelatedJobs);
       
-      // Load related jobs from the same department (commented out for now)
-      // if (jobData.department) {
-      //   const departmentId = jobData.department?.id || jobData.department;
-      //   const allJobs = await getJobs({ department: departmentId });
-      //   const related = allJobs.jobs || allJobs;
-      //   setRelatedJobs(related.filter(j => j.id !== id).slice(0, 3));
-      // }
+      // Load related jobs from the same department
+      if (jobData.department) {
+        try {
+          const departmentId = jobData.department?.id || jobData.department;
+          const allJobs = await getJobs({ department: departmentId });
+          const related = allJobs.jobs || allJobs;
+          setRelatedJobs(related.filter(j => j.id !== id).slice(0, 4));
+        } catch (error) {
+          console.error('Error loading related jobs:', error);
+          // Keep dummy data if API fails
+        }
+      }
     } catch (err) {
       setError('Failed to load job details');
       console.error('Error loading job details:', err);
