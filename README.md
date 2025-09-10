@@ -13,7 +13,7 @@ A React.js application to display active job openings with search and filter fun
 
 ## Technologies Used
 
-- React.js with Hooks
+- React.js   the repo name not the foler name of my current
 - React Router for navigation
 - Axios for API calls
 - CSS3 for styling
