@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { Link, useLocation, useHistory } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getJobs, getDepartments, getLocations, getFunctions } from '../api';
 import SearchFilters from './SearchFilters';
 import AppliedFilters from './AppliedFilters';
@@ -7,7 +7,7 @@ import './JobList.css';
 
 function JobList() {
   const location = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
   const [jobs, setJobs] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [departments, setDepartments] = useState([]);
@@ -120,8 +120,8 @@ function JobList() {
     });
     
     const newUrl = urlParams.toString() ? `?${urlParams.toString()}` : '';
-    history.push(newUrl);
-  }, [history]);
+    navigate(newUrl);
+  }, [navigate]);
 
   const groupJobsByDepartment = useCallback((jobsList) => {
     const grouped = {};
@@ -195,7 +195,7 @@ function JobList() {
             function: ''
           };
           setFilters(clearedFilters);
-          history.push('/');
+          navigate('/');
         }}
         departments={departments}
         locations={locations}
